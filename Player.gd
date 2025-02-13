@@ -2,6 +2,11 @@ extends CharacterBody3D
 
 signal health_changed(health_value)
 
+var bulletScene = preload("res://Scenes - Other/bullet.tscn")
+var bulletSpawn 
+var ammo : int = 5
+var player_health = 100
+
 @onready var camera = $Camera3D
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash

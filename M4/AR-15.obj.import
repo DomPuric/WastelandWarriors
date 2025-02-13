@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmnnydlw35pr5"
+path="res://.godot/imported/AR-15.obj-b095bfb6d0bbc52e7da9b97ced177bd3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/AR-15.obj-b095bfb6d0bbc52e7da9b97ced177bd3.mesh"]
+
+source_file="res://M4/AR-15.obj"
+dest_files=["res://.godot/imported/AR-15.obj-b095bfb6d0bbc52e7da9b97ced177bd3.mesh", "res://.godot/imported/AR-15.obj-b095bfb6d0bbc52e7da9b97ced177bd3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

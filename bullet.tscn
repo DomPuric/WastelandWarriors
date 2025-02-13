@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgw8yv7c7p50p"]
+
+[ext_resource type="Script" path="res://Bullet.gd" id="1_oa4bi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uviao"]
+
+[node name="Bullet" type="Area3D"]
+script = ExtResource("1_oa4bi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.565993, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="MeshInstance3D"]
+transform = Transform3D(0.00988482, 0.519104, 0, -0.974765, 0.00526409, 0, 0, 0, 0.979519, 0.161626, 0.00912976, -0.0173385)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.034586, -0.941686, 0, 1.16327, 0.027998, 0, 0, 0, 1.1702, 0.199852, -1.19209e-07, 0)
+shape = SubResource("CapsuleShape3D_uviao")
+
+[node name="Timer" type="Timer" parent="CollisionShape3D"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="CollisionShape3D/Timer" to="." method="destroy"]
