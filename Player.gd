@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 signal health_changed(health_value)
 
-var bulletScene = preload("res://Scenes - Other/bullet.tscn")
+var bulletScene = preload("res://bullet.tscn")
 var bulletSpawn 
 var ammo : int = 5
 var player_health = 100
@@ -28,6 +28,7 @@ func _ready():
 	if not is_multiplayer_authority(): return
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	bulletSpawn = get_node("Camera3D/bulletSpawn")
 	camera.current = true
 
 func _unhandled_input(event):
@@ -38,9 +39,10 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 	
-	if Input.is_action_just_pressed("shoot") \
-			and anim_player.current_animation != "shoot":
-		play_shoot_effects.rpc()
+		if Input.is_actions_just_pressed("shoot"):
+			shoot()
+		#and anim_player.current_animation != "shoot":
+		#play_shoot_effects.rpc()
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
@@ -96,3 +98,11 @@ func _on_animation_player_animation_finished(anim_name):
 		anim_player.play("idle")
 		
 		# Test comment
+
+func shoot ():
+	var bullet = bulletScene.instantiate()
+	get_node("/root/LevelOne").add_child(bullet)
+	bullet.global_transform = bulletSpawn.global_transform
+	bullet.scale = Vector3(0.1,0.1,0.1)
+
+	ammo -= 1

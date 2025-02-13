@@ -4,7 +4,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uviao"]
 
-[node name="Bullet" type="Area3D"]
+[node name="bullet" type="Area3D"]
 script = ExtResource("1_oa4bi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
