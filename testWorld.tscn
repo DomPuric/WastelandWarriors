@@ -67,18 +67,19 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme_override_constants/separation = 15
 
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SinglePlayer" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Single Player"
 
-[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer"]
+[node name="Quit" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = -38.0
-offset_right = 276.0
-offset_bottom = -15.0
-text = "Main Menu"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "Quit"
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
 visible = false
@@ -132,3 +133,4 @@ navigation_mesh = SubResource("NavigationMesh_rmptm")
 [node name="Environment" parent="NavigationRegion3D" instance=ExtResource("2_fr3vy")]
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

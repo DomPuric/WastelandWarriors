@@ -26,6 +26,8 @@ func _on_single_player_button_pressed():
 	#multiplayer.multiplayer_peer = enet_peer
 	add_player(multiplayer.get_unique_id())
 
+func _on_quit_pressed() -> void:
+	get_tree().quit()
 
 func add_player(peer_id):
 	player = Player.instantiate()
